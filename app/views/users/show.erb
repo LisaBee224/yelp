@@ -1,0 +1,15 @@
+<h1>hey <%=@user.username%> </h1>
+
+<%if @user.reviews.length >= 1 %>
+<h1>your reviews</h1>
+<%@user.reviews.each do |review|%>
+<h3>review for: <%=review.restaurant.name%></h3>
+<p><%=review.body%></p>
+<%end%>
+<%end%>
+<%if @user.restaurants.length >= 1 %>
+<h1>your businesses</h1>
+<%@user.restaurants.each do |restaurant|%>
+<p><%=restaurant.name%></p>
+<%end%>
+<%end%>

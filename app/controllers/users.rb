@@ -13,7 +13,9 @@ post '/users' do
   end
 end
 
-get '/user/:id' do
-  erb :'/user/show'
+get '/users/:id' do
+  @user = User.find_by(id: params[:id])
+  @reviews = Review.find_by(user_id: params[:id])
+  erb :'/users/show'
 end
 

@@ -29,13 +29,15 @@
    <li>|</li>
   <li><a href="/restaurant/new">post a restaurant</a></li>
    <li>|</li>
-  <li><a href="/restaurant/index">write a post</a></li>
+  <li><a href="/restaurant/index">write a review</a></li>
 <%end%>
 <% if !logged_in?%>
       <li><a href="/users/new">sign up</a></li>
        <li>|</li>
       <li><a href="/login">login</a></li>
       <%end %>
+      <li>|</li>
+      <li><a href="/">home</a></li>
     </ul>
 </nav>
   <%= yield %>

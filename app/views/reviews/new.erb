@@ -1,6 +1,6 @@
-<h1>post a review for <%=restaurant.name %></h1>
+<h1>post a review for <%=@restaurant.name %></h1>
 
-<form class="post" id="post" action="/review/new" method="post">
+<form class="review" id="review" action="/review/<%=@restaurant.id%>" method="post">
 
 
   <textarea name="review[body]" placeholder="write your review here..."></textarea>
