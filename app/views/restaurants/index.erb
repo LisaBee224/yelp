@@ -1,0 +1,6 @@
+<h1>resto's</h1>
+<%@restaurants.each do |restaurant|%>
+  <%=restaurant.name %>
+  <a href="/review/<%=restaurant.id%>/new">review this place</a>
+  <%end%>
+
