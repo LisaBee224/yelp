@@ -1,0 +1,10 @@
+<h1>edit the info for <%=@restaurant.name%></h1>
+
+<form method="post" action="/restaurant/<%=@restaurant.id%>">
+  <input type="hidden" name="_method" value="PUT">
+
+  <input type="text" name="restaurant[name]" value="<%=@restaurant.name%>">
+  <input type="text" name="restaurant[cuisine]" value="<%=@restaurant.cuisine%>">
+  <textarea name="restaurant[description]"><%=@restaurant.description%>"</textarea>
+    <input type="submit" value="update my biz">
+</form>
