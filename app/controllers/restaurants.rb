@@ -15,10 +15,22 @@ end
 get "/restaurant/:id" do
   @restaurant = Restaurant.find_by(id: params[:id])
   @reviews = Review.find_by(restaurant_id: params[:id])
-
   erb :'/restaurants/show'
 end
 
+get "/restaurant/:id/edit" do
+  if logged_in? && current_user.id == @restaurant.user_id
+    @restaurant = Restaurant.find_by(id: params[:id])
+    erb :'/restaurants/edit'
+  else
+    redirect '/'
+  end
+end
+put "/restaurant/:id" do
+  @restaurant = Restaurant.find_by(id: params[:id])
+  @restaurant.update_attributes(params[:restaurant])
+  redirect '/restaurants'
+end
 get '/restaurants' do
   @restaurants = Restaurant.all
   erb :'/restaurants/index'

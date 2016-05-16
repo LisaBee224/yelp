@@ -8,5 +8,8 @@
 <%if logged_in?%>
 <li><a href="/review/<%=restaurant.id%>/new">review this joint</a></li>
 <%end%>
+<%if logged_in? && current_user.id == restaurant.user_id %>
+<li><a href="/restaurant/<%=restaurant.id%>/edit">this is your joint -- edit it</a></li>
+<%end%>
 </ul>
 <%end%>
