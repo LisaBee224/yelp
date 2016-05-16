@@ -35,3 +35,16 @@ get '/restaurants' do
   @restaurants = Restaurant.all
   erb :'/restaurants/index'
 end
+
+post '/cuisine_index' do
+  @restaurants = Restaurant.where(cuisine: params[:cuisine])
+  @cuisine = params[:restaurant][:cuisine]
+
+  redirect "/restaurants/show/#{@cuisine}"
+end
+
+get "/restaurants/show/:cuisine" do
+  @restaurants = Restaurant.where(cuisine: params[:cuisine])
+  @cuisine = params[:cuisine]
+  erb :'/restaurants/cuisine'
+end

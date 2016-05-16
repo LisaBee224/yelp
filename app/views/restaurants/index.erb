@@ -4,6 +4,7 @@
 <%@restaurants.each do |restaurant|%>
 <ul>
 <li><%=restaurant.name %></li>
+<li><%=restaurant.cuisine%></li>
 <li><%=restaurant.description%></li>
 <%if logged_in?%>
 <li><a href="/review/<%=restaurant.id%>/new">review this joint</a></li>

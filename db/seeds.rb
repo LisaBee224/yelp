@@ -9,11 +9,14 @@ User.create!(:username => Faker::Internet.user_name,
 end
 
 20.times do
+types = ["sushi", "breakfast", "bar", "italian","thai", "mexican","bbq", "diner", "juices & smoothies"]
 Restaurant.create!(:name => Faker::Company.name,
                     :description => Faker::Hipster.paragraph,
-                    :cuisine => Faker::Hipster.words(3))
+                    :cuisine => types.sample)
 
 end
+
+
 
 10.times do
 
