@@ -1,5 +1,6 @@
 get '/review/:id/new' do
   @restaurant = Restaurant.find_by(id: params[:id])
+  @reviews = Review.where(restaurant_id: params[:id])
   erb :'/reviews/new'
 end
 
@@ -12,10 +13,15 @@ post '/review/:id' do
 end
 
 get '/review/:id/edit' do
-  @review = Review.find_by(user_id: params[:user_id])
-      #WHY IS @REVIEW NILCLASS??? params not being captured
+  @review = Review.find_by(id: params[:id])
   if logged_in? && current_user.id == @review.user_id
-    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
   erb :'/reviews/edit'
 end
+end
+
+put '/review/:id' do
+  @review = Review.find_by(id: params[:id])
+  @review.update_attributes(params[:review])
+  @restaurant = @review.restaurant
+  redirect '/restaurants'
 end

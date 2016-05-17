@@ -9,9 +9,7 @@
 <%if logged_in?  %>
 <li><a href="/review/<%=restaurant.id%>/new">review this joint</a></li>
 <% if restaurant.reviews.where(user_id: current_user.id).length >= 1 %>
-<% restaurant.reviews.each do |review| %>
-<li><a href="/review/<%=review.user_id%>/edit">edit your review for this place</a></li>
-<%end%>
+<li><a href="/review/<%=restaurant.reviews.first.id%>/edit">edit your review for this place</a></li>
 <%end%>
 <%end%>
 <%if logged_in? && current_user.id == restaurant.user_id %>
