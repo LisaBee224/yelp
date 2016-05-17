@@ -12,5 +12,10 @@ post '/review/:id' do
 end
 
 get '/review/:id/edit' do
-  erb :'/reviews/update'
+  @review = Review.find_by(user_id: params[:user_id])
+      #WHY IS @REVIEW NILCLASS??? params not being captured
+  if logged_in? && current_user.id == @review.user_id
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
+  erb :'/reviews/edit'
+end
 end
